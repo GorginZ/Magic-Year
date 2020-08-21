@@ -12,35 +12,49 @@ namespace Magic_Year
       Console.WriteLine("Please enter your last name");
       var lastName = Console.ReadLine();
       Console.WriteLine(NameConcat(firstName, lastName));
-       Console.WriteLine("please enter your annual salary");
-        var annual = Console.ReadLine();
+      Console.WriteLine("please enter your annual salary");
+      var annual = Console.ReadLine();
       Console.WriteLine(MonthlySal(annual));
     }
 
     public static string NameConcat(string firstName, string lastName) => $"{firstName} {lastName}";
 
 
-     public static string MonthlySal(string annual) 
-     {
-       int annualInt;
-       int monthly;
-       var resBool = int.TryParse(annual, out annualInt);
+    public static string MonthlySal(string annual)
+    {
+      int annualInt;
+      int monthly;
+      var resBool = int.TryParse(annual, out annualInt);
 
-        if (resBool == true)
-        {
+      if (resBool == true)
+      {
         monthly = (annualInt / 12);
         return $"Monthly Salary: {monthly}";
 
-        }
-       else {
-         return "Please enter numbers only";
-       }
-     } 
+      }
+      else
+      {
+        return "Please enter numbers only";
+      }
+    }
 
-     public static string CalcMagicYear(string year) 
-     {
-     return year;
-     }
+    public static string CalcMagicYear(string startYear)
+    { 
+      int magicYear;
+      int startInt;
+      var resBool = int.TryParse(startYear, out startInt);
+
+        if (resBool == true)
+      {
+        magicYear = (startInt + 65);
+        return $"Magic Year: {magicYear}";
+
+      }
+      else
+      {
+        return "Please enter numbers only";
+      }
+    }
 
 
   }
