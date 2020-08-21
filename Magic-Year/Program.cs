@@ -37,5 +37,11 @@ namespace Magic_Year
        }
      } 
 
+     public static string CalcMagicYear(string year) 
+     {
+     return year;
+     }
+
+
   }
 }

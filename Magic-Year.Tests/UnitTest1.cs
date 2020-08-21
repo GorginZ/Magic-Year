@@ -14,11 +14,16 @@ namespace Magic_Year.Tests
         }
 
           [Fact]
-        public void CalcMonthlySalaryFromAnnualSalary()
+        public void TestCalcMonthlySalaryFromAnnualSalary()
         { 
           var testMonthly = Program.MonthlySal("60050");
           Assert.Equal("Monthly Salary: 5004", testMonthly);
         }
-
+       [Fact]
+        public void TestCalcMagicYear()
+        { 
+          var testMagicYear = Program.CalcMagicYear("1980");
+          Assert.Equal("Magic Year: 2045", testMagicYear);
+        }
     }
 }
