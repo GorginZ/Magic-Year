@@ -17,7 +17,7 @@ namespace Magic_Year.Tests
         public void CalcMonthlySalaryFromAnnualSalary()
         { 
           var testMonthly = Program.MonthlySal("60050");
-          Assert.Equal("5004", testMonthly);
+          Assert.Equal("Monthly Salary: 5004", testMonthly);
         }
 
     }

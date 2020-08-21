@@ -28,10 +28,13 @@ namespace Magic_Year
 
         if (resBool == true)
         {
-          
+        monthly = (annualInt / 12);
+        return $"Monthly Salary: {monthly}";
+
         }
-       
-      return null; // $"Monthly Salary: {monthly}";
+       else {
+         return "Please enter numbers only";
+       }
      } 
 
   }
