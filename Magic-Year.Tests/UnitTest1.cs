@@ -13,5 +13,12 @@ namespace Magic_Year.Tests
           Assert.Equal("Georgia Leng", testFullName);
         }
 
+          [Fact]
+        public void CalcMonthlySalaryFromAnnualSalary()
+        { 
+          var testMonthly = Program.MonthlySal("60050");
+          Assert.Equal("5004", testMonthly);
+        }
+
     }
 }
