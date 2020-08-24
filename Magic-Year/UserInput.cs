@@ -13,7 +13,7 @@ namespace Magic_Year
     [Required(ErrorMessage = "First Name Required")]
     // [Required]
     [MaxLength(15, ErrorMessage = "First Name should not more than 1`5 character")]
-    [MinLength(2, ErrorMessage = "First Name should be more than 2 characters")]
+    [MinLength(3, ErrorMessage = "First Name should be more than 2 characters")]
     public string FirstName { get; set; }
 
 

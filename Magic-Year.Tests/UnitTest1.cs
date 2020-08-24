@@ -1,6 +1,10 @@
 using System;
 using Xunit;
 using Magic_Year;
+using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
+
+
 
 namespace Magic_Year.Tests
 {
@@ -9,32 +13,55 @@ namespace Magic_Year.Tests
     [Fact]
     public void FullName()
     {
-      var testFullName = Program.NameConcat("Georgia", "Leng");
+      var testFullName = UserInput.NameConcat("Georgia", "Leng");
       Assert.Equal("Georgia Leng", testFullName);
     }
 
     [Fact]
     public void TestCalcMonthlySalaryFromAnnualSalary()
     {
-      var testMonthly = Program.MonthlySal("60050");
+      var testMonthly = UserInput.MonthlySal("60050");
       Assert.Equal("Monthly Salary: 5004", testMonthly);
     }
     [Fact]
     public void TestCalcMagicYear()
     {
-      var testMagicYear = Program.CalcMagicYear("1980");
+      var testMagicYear = UserInput.CalcMagicYear("1980");
       Assert.Equal("Magic Year: 2045", testMagicYear);
-    }
-    [Fact]
-    public void TestCalcMagicYearInputType()
-    {
-      Assert.Throws(typeof(Exception), () => Program.CalcMagicYear("aa29"));
+    
     }
 
-    [Fact]
-    public void TestSalaryMagicYearInputType()
-    {
-      Assert.Throws(typeof(Exception), () => Program.MonthlySal("aa29"));
-    }
+   [Fact]
+   public void AttributeTest()
+   {
+     //arrange
+     var testInput = new UserInput();
+     testInput.FirstName = "";
+     testInput.LastName = "Last";
+     testInput.AnnualSalary = "50000";
+     testInput.WorkStartYear = "30000";
+//context?
+       var context = new ValidationContext(testInput, null, null);
+       var result = new List<ValidationResult>();
+
+
+     // act
+  bool IsValid = Validator.TryValidateObject(testInput, context, result, true);
+     //Assert
+     Assert.False(IsValid);
+   }
+
+
+    // [Fact]
+    // public void TestCalcMagicYearInputType()
+    // {
+    //   Assert.Throws(typeof(Exception), () => UserInput.CalcMagicYear("aa29"));
+    // }
+
+    // [Fact]
+    // public void TestSalaryMagicYearInputType()
+    // {
+    //   Assert.Throws(typeof(Exception), () => UserInput.MonthlySal("aa29"));
+    // }
   }
 }

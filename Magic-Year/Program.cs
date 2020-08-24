@@ -12,27 +12,19 @@ namespace Magic_Year
 
     static void Main(string[] args)
     {
+      var testInput = new UserInput();
+      var context = new ValidationContext(testInput, null, null);
+
+
 
       List<string> inputQuestions = new List<string> { "Please enter your first name: ", "Please enter your Last name: ", "Please enter your annual salary: ", "please enter your work start year: " };
 
-      var testInput = new UserInput();
-      testInput.FirstName = "";
-      //context
-      var context = new ValidationContext(testInput, null, null);
-      var result = new List<ValidationResult>();
-      bool IsValid = Validator.TryValidateObject(testInput, context, result, true);
-
-      Console.WriteLine(IsValid);
-      //output
-      //change x name
-      foreach (var x in result)
-      {
-        Console.WriteLine(x.ErrorMessage);
-      }
-      Console.Read();
+   
 
       Console.WriteLine(inputQuestions[0]);
       testInput.FirstName = Console.ReadLine();
+
+  
       Console.WriteLine(inputQuestions[1]);
       testInput.LastName = Console.ReadLine();
       Console.WriteLine(inputQuestions[2]);
@@ -42,8 +34,21 @@ namespace Magic_Year
       Console.WriteLine($"{testInput.FirstName} {testInput.LastName} {testInput.AnnualSalary} {testInput.WorkStartYear}");
 
 
-      //step 3 pass context object to validator class
+      // pass context object to validator class
 
+
+      //validation result collection. is passed as third parameter to context
+      var result = new List<ValidationResult>();
+      bool IsValid = Validator.TryValidateObject(testInput, context, result, true);
+
+      Console.WriteLine(IsValid);
+      //output
+      //change x name
+      foreach (var validation in result)
+      {
+        Console.WriteLine(validation.ErrorMessage);
+      }
+      Console.Read();
     }
 
 
