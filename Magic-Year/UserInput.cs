@@ -28,6 +28,14 @@ namespace Magic_Year
     [RegularExpression("^[0-9]+$", ErrorMessage = "Your work start your should only include numbers")]   
     public string WorkStartYear { get; set; }
 
+
+
+               
+        
+    
+
+
+
     public static string NameConcat(string FirstName, string LastName) => $"{FirstName} {LastName}";
 
 

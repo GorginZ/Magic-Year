@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Text;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Magic_Year
 {
@@ -14,6 +16,10 @@ namespace Magic_Year
       List<string> inputQuestions = new List<string>{ "Please enter your first name: ", "Please enter your Last name: ", "Please enter your annual salary: ", "please enter your work start year: " };
 
       var testInput = new UserInput();
+//context
+      var context = new ValidationContext(testInput, null, null);
+
+  
       Console.WriteLine(inputQuestions[0]);
       testInput.FirstName = Console.ReadLine();
       Console.WriteLine(inputQuestions[1]);
@@ -24,7 +30,15 @@ namespace Magic_Year
       testInput.WorkStartYear = Console.ReadLine();
       Console.WriteLine($"{testInput.FirstName} {testInput.LastName} {testInput.AnnualSalary} {testInput.WorkStartYear}");
 
+
+      //step 3 pass context object to validator class
+
+    bool IsValid = Validator.TryValidateObject(testInput, context, null);
+      Console.WriteLine(IsValid);
+      //output
+      Console.Read();
     }
+  
 
   }
 }
