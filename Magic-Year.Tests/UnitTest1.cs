@@ -32,11 +32,11 @@ namespace Magic_Year.Tests
     }
 
    [Fact]
-   public void AttributeTest()
+   public void FirstNameAttributeTest()
    {
      //arrange
      var testInput = new UserInput();
-     testInput.FirstName = "";
+     testInput.FirstName = "Ge";
      testInput.LastName = "Last";
      testInput.AnnualSalary = "50000";
      testInput.WorkStartYear = "30000";
@@ -51,17 +51,36 @@ namespace Magic_Year.Tests
      Assert.False(IsValid);
    }
 
+     [Fact]
+   public void ErrorMesssageTest()
+   {
+     //arrange
+     var testInput = new UserInput();
+     testInput.FirstName = "Ge";
+     testInput.LastName = "Last";
+     testInput.AnnualSalary = "50000";
+     testInput.WorkStartYear = "30000";
+    //context?
+       var context = new ValidationContext(testInput, null, null);
+       var result = new List<ValidationResult>();
+       var message = "";
 
-    // [Fact]
-    // public void TestCalcMagicYearInputType()
-    // {
-    //   Assert.Throws(typeof(Exception), () => UserInput.CalcMagicYear("aa29"));
-    // }
 
-    // [Fact]
-    // public void TestSalaryMagicYearInputType()
-    // {
-    //   Assert.Throws(typeof(Exception), () => UserInput.MonthlySal("aa29"));
-    // }
+     // act
+  bool IsValid = Validator.TryValidateObject(testInput, context, result, true);
+
+ foreach (var validation in result)
+      {
+        
+        message = (validation.ErrorMessage);
+      }
+      Console.Read();
+
+
+
+    //  Assert
+     Assert.Equal("First Name should be more than 2 characters", message);
+   }
+
   }
 }

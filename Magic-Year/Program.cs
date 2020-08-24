@@ -15,12 +15,9 @@ namespace Magic_Year
       var testInput = new UserInput();
       var context = new ValidationContext(testInput, null, null);
 
-
-
       List<string> inputQuestions = new List<string> { "Please enter your first name: ", "Please enter your Last name: ", "Please enter your annual salary: ", "please enter your work start year: " };
 
    
-
       Console.WriteLine(inputQuestions[0]);
       testInput.FirstName = Console.ReadLine();
 
@@ -43,7 +40,6 @@ namespace Magic_Year
 
       Console.WriteLine(IsValid);
       //output
-      //change x name
       foreach (var validation in result)
       {
         Console.WriteLine(validation.ErrorMessage);
