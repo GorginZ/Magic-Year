@@ -1,29 +1,40 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using System.Text;
 
 namespace Magic_Year
 {
   public class Program
   {
+  
     static void Main(string[] args)
-    {
-      Console.WriteLine("Hello Welcome to magic year thing!");
-      Console.WriteLine("please enter your first name:");
-      var firstName = Console.ReadLine();
-      Console.WriteLine("Please enter your last name:");
-      var lastName = Console.ReadLine();
-      Console.WriteLine(NameConcat(firstName, lastName));
-      Console.WriteLine("please enter your annual salary:");
-      var annual = Console.ReadLine();
-      Console.WriteLine(MonthlySal(annual));
-      Console.WriteLine("please enter your work start year:");
-      var Startyear = Console.ReadLine();
-      Console.WriteLine(CalcMagicYear(Startyear));
+    { 
+   
+      List<string> inputQuestions = new List<string>{ "Please enter your first name: ", "Please enter your Last name: ", "Please enter your annual salary: ", "please enter your work start year: " };
+      
+      // foreach (string element in inputQuestions){
+      //   Console.WriteLine(element);
+      // }
 
+        try {
+        //Parse the row here and create the object. don't do any validation here
+        var userInstance = UserInput("test", "test", "test", "test");  
+        empList.Add(employee);
+    }
+    catch (ValidationException ve){
+        //do whatever
     }
 
-    public static string NameConcat(string firstName, string lastName) => $"{firstName} {lastName}";
+   }
+
+   
+           // NameConcat(firstName,lastName);
 
 
+
+
+  
     public static string MonthlySal(string annual)
     {
       int annualInt;
@@ -38,7 +49,7 @@ namespace Magic_Year
       }
       else
       {
-        return "Please enter numbers only";
+        throw new Exception("Annual Salary Should only include digits, eg: 60000");
       }
     }
 
@@ -53,10 +64,12 @@ namespace Magic_Year
         magicYear = (startInt + 65);
         return $"Magic Year: {magicYear}";
       }
+
       else
       {
-        return "Please enter numbers only";
+        throw new Exception("Start Year Should only include digits, eg: 1980");
       }
+
     }
   }
 }
