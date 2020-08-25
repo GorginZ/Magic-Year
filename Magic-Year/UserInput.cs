@@ -15,6 +15,7 @@ namespace Magic_Year
     [MaxLength(15, ErrorMessage = "First Name should not more than 1`5 character")]
     [MinLength(3, ErrorMessage = "First Name should be more than 2 characters")]
     public string FirstName { get; set; }
+    
 
 
     // [Required, RegularExpression("/^[A-Za-z]+$/")]
@@ -32,10 +33,7 @@ namespace Magic_Year
 
 
 
-
-
-
-
+    
 
     public static string NameConcat(string FirstName, string LastName) => $"{FirstName} {LastName}";
 
@@ -48,6 +46,7 @@ namespace Magic_Year
 
       monthly = (annualInt / 12);
       return $"Monthly Salary: {monthly}";
+
     }
 
     public static string CalcMagicYear(string startYear)

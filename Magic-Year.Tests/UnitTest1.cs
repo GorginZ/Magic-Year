@@ -10,21 +10,15 @@ namespace Magic_Year.Tests
 {
   public class UnitTest1
   {
+   
     [Fact]
-    public void FullName()
-    {
-      var testFullName = UserInput.NameConcat("Georgia", "Leng");
-      Assert.Equal("Georgia Leng", testFullName);
-    }
-
-    [Fact]
-    public void TestCalcMonthlySalaryFromAnnualSalary()
-    {
+    public void MonthlySalary()
+    { 
       var testMonthly = UserInput.MonthlySal("60050");
       Assert.Equal("Monthly Salary: 5004", testMonthly);
     }
     [Fact]
-    public void TestCalcMagicYear()
+    public void MagicYear()
     {
       var testMagicYear = UserInput.CalcMagicYear("1980");
       Assert.Equal("Magic Year: 2045", testMagicYear);
@@ -32,7 +26,7 @@ namespace Magic_Year.Tests
     }
 
    [Fact]
-   public void FirstNameAttributeTest()
+   public void FirstNameAttribute()
    {
      //arrange
      var testInput = new UserInput();
@@ -52,7 +46,7 @@ namespace Magic_Year.Tests
    }
 
      [Fact]
-   public void ErrorMesssageTest()
+   public void ErrorMesssage()
    {
      //arrange
      var testInput = new UserInput();
