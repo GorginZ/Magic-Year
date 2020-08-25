@@ -17,7 +17,6 @@ namespace Magic_Year
     public string FirstName { get; set; }
     
 
-
     // [Required, RegularExpression("/^[A-Za-z]+$/")]
     [Required(ErrorMessage = "Last Name Required")]
     [MaxLength(15, ErrorMessage = "Last Name should not more than 1`5 character")]
